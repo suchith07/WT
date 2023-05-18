@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<marquee behavior='scroll' style='color:purple'>JavaScript/JQuery code to validate the following fields of the Registration web
+page</marquee>
+</head>
+<body bgcolor='gray'>
+<center>
+    <form id="registrationForm">
+	<caption><big>Registration Form</big></caption>
+	<table border='1' bgcolor='skyblue'>
+        <tr>
+			<td><label for="firstName">First Name:</label></td>
+			<td><input type="text" id="firstName" name="firstName" required></td>
+		</tr>
+		<tr>
+			<td><label for="lastName">Last Name:</label></td>
+			<td><input type="text" id="lastName" name="lastName" required></td>
+		</tr>
+		<tr>
+			<td><label for="username">Username:</label></td>
+			<td><input type="text" id="username" name="username" required></td>
+		</tr>
+		<tr>
+			<td><label for="password">Password:</label></td>
+			<td><input type="password" id="password" name="password" required></td>
+		</tr>
+		<tr>
+			<td><label for="dob">Date of Birth:</label></td>
+			<td><input type="text" id="dob" name="dob" value="DD/MM/YYYY"required></td>
+		</tr>
+		<tr>
+			<td><label for="postalCode">Postal Code:</label></td>
+			<td><input type="text" id="postalCode" name="postalCode" required></td>
+		</tr>
+		<tr>
+			<td><label for="mobileNo">Mobile No.:</label></td>
+			<td><input type="text" id="mobileNo" name="mobileNo" required></td>
+		</tr>
+		<tr>
+			<td><label for="email">Email:</label></td>
+			<td><input type="email" id="email" name="email" required></td>
+		</tr>
+		<tr>
+			<td colspan='2' align='center'><input type="submit" value="Register"><input type="reset" value="Reset"></td>
+		</tr>
+	</table>
+    </form>
+</center>
+    <script>
+        $(document).ready(function() {
+            $("#registrationForm").submit(function(event) {
+                event.preventDefault();
+
+                // Regular expressions for validation
+                var nameRegex = /^[A-Za-z]{8,}$/;
+                var usernameRegex = /^[A-Za-z0-9_]+$/;
+                var passwordRegex = /^(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/;
+                var dobRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+                var postalCodeRegex = /^\d{6}$/;
+                var mobileNoRegex = /^\d{10}$/;
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                // Get form values
+                var firstName = $("#firstName").val();
+                var lastName = $("#lastName").val();
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var dob = $("#dob").val();
+                var postalCode = $("#postalCode").val();
+                var mobileNo = $("#mobileNo").val();
+                var email = $("#email").val();
+
+                // Validate First Name
+                if (!nameRegex.test(firstName)) {
+                    alert("First Name should contain only alphabets and should be at least 8 characters long.");
+                    return;
+                }
+
+                // Validate Last Name
+                if (!nameRegex.test(lastName)) {
+                    alert("Last Name should contain only alphabets and should be at least 8 characters long.");
+                    return;
+                }
+
+                // Validate Username
+                if (!usernameRegex.test(username)) {
+                    alert("Username should contain a combination of alphabets, numbers, and underscore. No spaces or special symbols are allowed.");
+                    return;
+                }
+
+                // Validate Password
+                if (!passwordRegex.test(password)) {
+                    alert("Password should be at least 8 characters long and contain at least one uppercase letter and one special symbol.");
+                    return;
+                }
+
+                // Validate Date of Birth
+                if (!dobRegex.test(dob)) {
+                    alert("Invalid Date of Birth. Please enter a valid date in the format DD/MM/YYYY.");
+                    return;
+                }
+
+                // Validate Postal Code
+                if (!postalCodeRegex.test(postalCode)) {
+                    alert("Postal Code should be a 6-digit number.");
+                    return;
+                }
+
+                // Validate Mobile No.
+                if (!mobileNoRegex.test(mobileNo)) {
+                    alert("Mobile No. should be a 10-digit number.");
+                    return;
+                }
+
+                // Validate Email
+                if (!emailRegex.test(email)) {
+                    alert("Invalid Email address. Please enter a valid email in the format mailid@domainname.com.");
+                    return;
+                }
+
+                // All fields are valid, submit the form
+                alert("Registration Successful!");
+                // You can uncomment the following line to submit the form
+                // $("#registrationForm").submit();
+            });
+        });
+    </script>
+</body>
+</html>
