@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Page with Custom Effects</title>
+  <style>
+    #video {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+<center>
+  <h2>Playing Selected Video from the List</h2></center>
+  <br><br>
+  <select id="videoSelect">
+    <option value="video1.mp4">Video 1</option>
+    <option value="video2.mp4">Video 2</option>
+	</select>
+  <div id="video"></div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $('#videoSelect').change(function() {
+      var videoSrc = $(this).val();
+      $('#video').html('<video src="' + videoSrc + '" controls autoplay></video>');
+    });
+	
+  </script>
+</body>
+</html>

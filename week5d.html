@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Page with Custom Effects</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("button").click(function(){
+    $("div").animate({left: '250px',opacity: '0.5',height: '150px',width: '150px'});
+  });
+});
+</script> 
+</head>
+<body>
+<center>
+<h1>Changing the size of the area in a web page using DIV tag</h1>
+
+<button>Click Here</button>
+<br><br>
+<div style="background:blue;height:100px;width:100px;"></div>
+</center>
+</body>
+</html>
